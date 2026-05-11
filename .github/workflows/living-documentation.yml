@@ -1,0 +1,55 @@
+name: Living Documentation
+
+on:
+  workflow_run:
+    workflows: ["GeekStore Automation", "Herokuapp Automation"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-geekstore:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1
+    - name: Build GeekStore
+      run: cd geekstore-automation && gradle clean test -Dheadless.mode=true
+    - name: Deploy GeekStore Report
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: geekstore-automation/target/site/serenity
+        target-folder: geekstore
+
+  deploy-herokuapp:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1
+    - name: Build Herokuapp
+      run: cd herokuapp-automation && gradle clean test -Dheadless.mode=true
+    - name: Deploy Herokuapp Report
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: herokuapp-automation/target/site/serenity
+        target-folder: herokuapp
