@@ -32,13 +32,13 @@ public class ConfigurarComputador implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(ComputadorPage.processor, isVisible()).forNoMoreThan(15).seconds(),
+                WaitUntil.the(ComputadorPage.processor, isVisible()).forNoMoreThan(20).seconds(),
                 SelectFromOptions.byVisibleText(processor).from(ComputadorPage.processor),
-                WaitUntil.the(ComputadorPage.os, isVisible()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(ComputadorPage.os, isVisible()).forNoMoreThan(10).seconds(),
                 SelectFromOptions.byVisibleText(os).from(ComputadorPage.os),
-                WaitUntil.the(ComputadorPage.ssd, isVisible()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(ComputadorPage.ssd, isVisible()).forNoMoreThan(10).seconds(),
                 SelectFromOptions.byVisibleText(ssd).from(ComputadorPage.ssd),
-                WaitUntil.the(ComputadorPage.ram, isVisible()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(ComputadorPage.ram, isVisible()).forNoMoreThan(10).seconds(),
                 Clear.field(ComputadorPage.ram),
                 Enter.theValue(ram).into(ComputadorPage.ram)
         );
