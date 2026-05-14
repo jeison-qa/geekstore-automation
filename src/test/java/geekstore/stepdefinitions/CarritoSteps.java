@@ -34,8 +34,9 @@ public class CarritoSteps {
         usuario.attemptsTo(
                 Open.url("https://testing.geekqa.net/public_html/public/index.php/SignUp")
         );
-        usuario.attemptsTo(
-                Login.conCredenciales("testuser1@yopmail.com", "Test1234!")
+        Login.conCredenciales(
+                System.getenv("GEEKSTORE_USER") != null ? System.getenv("GEEKSTORE_USER") : "testuser1@yopmail.com",
+                System.getenv("GEEKSTORE_PASS") != null ? System.getenv("GEEKSTORE_PASS") : "Test1234!"
         );
     }
 
