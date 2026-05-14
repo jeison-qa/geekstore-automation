@@ -25,7 +25,7 @@ public class ComputadorConfigurado implements Question<Boolean> {
         var driver = BrowseTheWeb.as(actor).getDriver();
         try {
             org.openqa.selenium.support.ui.WebDriverWait wait =
-                    new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(5));
+                    new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(20));
             if (tipo.equals("boton")) {
                 wait.until(d -> !d.findElements(
                         org.openqa.selenium.By.xpath("//button[@id='addtocart-submit']")

@@ -36,7 +36,7 @@ public class AgregarAlCarrito implements Task {
                 WaitUntil.the(CarritoPage.producto(nombreProducto), isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(CarritoPage.producto(nombreProducto)),
                 Scroll.to(CarritoPage.botonAgregarCarrito),
-                WaitUntil.the(CarritoPage.botonAgregarCarrito, isVisible()).forNoMoreThan(30).seconds(),
+                WaitUntil.the(CarritoPage.botonAgregarCarrito, isVisible()).forNoMoreThan(20).seconds(),
                 Click.on(CarritoPage.botonAgregarCarrito)
         );
     }
