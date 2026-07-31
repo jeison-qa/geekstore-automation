@@ -1,6 +1,8 @@
 # GeekStore Automation
 
-Proyecto de automatización de pruebas para GeekStore usando Serenity BDD, Cucumber y Gradle.
+Proyecto de automatización de pruebas web desarrollado con Serenity BDD, Cucumber, Selenium WebDriver y Gradle.
+
+Este proyecto forma parte de mi portafolio como QA Automation Engineer y tiene como objetivo validar funcionalidades críticas de una tienda en línea mediante pruebas automatizadas siguiendo el patrón Screenplay.
 
 ## Tecnologías
 - Java 17
